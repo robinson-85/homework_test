@@ -39,3 +39,13 @@ impostos dos doze produtos.
 ■ A quantidade de produtos com classificação barato.
 ■ A quantidade de produtos com classificação caro.
 ■ A quantidade de produtos com classificação normal.*/
+
+#include <stdio.h>
+int main(){
+    float
+
+
+
+    getchar();
+    return 0;
+}

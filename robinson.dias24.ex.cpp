@@ -33,3 +33,13 @@ esta tabela:
     Salários                                Classificação
 Até R$700,00 R$                             Mal remunerado
 Maiores que R$700,00 R$                     Bem remunerado             */
+
+#include <stdio.h>
+int main(){
+    float
+
+
+
+    getchar();
+    return 0;
+}

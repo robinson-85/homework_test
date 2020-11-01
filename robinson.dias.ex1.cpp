@@ -7,3 +7,20 @@ Digite um número: 4.
 4x3 = 12              4x9 = 36
 4x4 = 16              4x10 = 40
 4x5 = 20                                 */
+
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    int n = 0, i = 0;
+    printf("\nPor favor, informe a tabuada que você deseja: \n");
+    scanf("%d",&n);
+ 
+    for(int i = 0; i<=10; i++){
+        printf("%d x %d = %d \n", n, i, n*i);
+    }
+
+    getchar();
+    return 0;
+
+}
