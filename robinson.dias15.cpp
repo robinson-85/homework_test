@@ -18,7 +18,6 @@ Menor que 50                S                      V                  R$4,00
 Menor que 50                N                    A ou V               R$0,00            
 Menor que 50                N                      L                  R$1,00
 
- 
 ■ O imposto calculado de acordo com as regras a seguir:
 Se o produto não preencher nenhum dos requisitos a seguir, seu imposto será de 2%
 sobre o preço unitário; caso contrário, será de 4%.
@@ -42,8 +41,69 @@ impostos dos doze produtos.
 
 #include <stdio.h>
 int main(){
-    float
+    float preco_unitario, custo_estocagem, imposto, preco_final;
+    char refrigeracao, categoria;
+    
+    
+    for(int i = 0; i<3; i++){
+        printf("Se refrigeração digite \n S, se não \n N \n");
+        scanf("%c", &refrigeracao);
+        printf("Digite a categoria: \nA — alimentação; \nL — limpeza; e \nV — vestuário \n");
+        scanf("%c", &categoria);
+        if(preco_unitario<20 && categoria == 'A'){
+            custo_estocagem = 2;
+        }
+        else if(preco_unitario<20 && categoria == 'L'){
+            custo_estocagem = 3;
+        }
+        else if(preco_unitario<20 && categoria == 'V'){
+            custo_estocagem = 4;
+        }
+        else if(preco_unitario>20 && preco_unitario<=50 && refrigeracao == 'S'){
+            custo_estocagem = 6;
+        }
+        else if(preco_unitario>20 && preco_unitario<=50 && refrigeracao == 'N'){
+            custo_estocagem = 0;
+        }
+        else if(preco_unitario<50 && refrigeracao == 'S' && categoria == 'A'){
+            custo_estocagem = 5;
+        }
+        else if(preco_unitario<50 && refrigeracao == 'S' && categoria == 'L'){
+            custo_estocagem = 2;
+        }
+        else if(preco_unitario<50 && refrigeracao == 'S' && categoria == 'V'){
+            custo_estocagem = 4;
+        }
+        else if(preco_unitario<50 && refrigeracao == 'N' && categoria == 'A' || categoria == 'V'){
+            custo_estocagem = 0;
+        }
+        else if(preco_unitario<50 && refrigeracao == 'N' && categoria == 'L'){
+            custo_estocagem = 1;
+        }
 
+        printf("O custo de estocagem sera: %.2f \n", custo_estocagem);
+
+        if(categoria == 'A' && refrigeracao == 'S'){
+            imposto = 4/100;
+        }    
+        else{
+            imposto = 2/100;
+        }
+
+        if(preco_final<=20){
+            printf("Classificacao: Barato. \n");
+        }
+        else if(preco_final>20 && preco_final<=100){
+            printf("Classificacao: Normal. \n");
+        }
+        else{
+            printf("Classificacao: Caro. \n");
+        }
+
+        preco_final = preco_unitario + custo_estocagem + imposto;
+
+
+    }
 
 
     getchar();
