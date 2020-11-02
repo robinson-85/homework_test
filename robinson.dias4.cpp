@@ -5,9 +5,11 @@ for múltiplo de 10, exiba a mensagem “MÚLTIPLO DE 10”. */
 int main(){
     int i;
     for(int i=0; i<=100; i+=10){
+        if(i % 10 == 0){
         printf("Multiplo de 10: %d \n", i);
-
+        }
     }
+
     getchar();
     return 0;
 }
