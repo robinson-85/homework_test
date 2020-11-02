@@ -3,7 +3,22 @@ número que foi digitado pelo usuário. */
 
 #include <stdio.h>
 int main(){
+    int numero_inteiro, numero, numero_maior, guarda_maior, i;
+    printf("Entre com o primeiro numero inteiro: ");
+    scanf("%i", &numero);
+    
+    guarda_maior=numero;
+ 
 
+    for(i=1; i<15; i++){
+    printf("\nEntre com o %do numero inteiro: \n",i+1);
+    scanf("%i", &numero);
+
+    if(numero > guarda_maior)
+    guarda_maior = numero;
+    }
+
+    printf("\nO maior numero entrado e: %d \n", guarda_maior); 
 
 
     getchar();

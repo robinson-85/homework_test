@@ -39,17 +39,20 @@ impostos dos doze produtos.
 ■ A quantidade de produtos com classificação caro.
 ■ A quantidade de produtos com classificação normal.*/
 
+
 #include <stdio.h>
 int main(){
-    float preco_unitario, custo_estocagem, imposto, preco_final;
+    float preco_unitario, custo_estocagem, imposto, preco_maior = 0,  preco_menor = 10000, preco_final, media_custo_estocagem, total_imposto = 0, valores_adicionais;
     char refrigeracao, categoria;
     
-    
-    for(int i = 0; i<3; i++){
-        printf("Se refrigeração digite \n S, se não \n N \n");
-        scanf("%c", &refrigeracao);
+    for(int i = 0; i<12; i++){
+        printf("Digite o preco unitario do produto: \n");
+        scanf("%f", &preco_unitario);
+        printf("Se refrigeração digite S, se não N \n");
+        scanf("%s", &refrigeracao);
         printf("Digite a categoria: \nA — alimentação; \nL — limpeza; e \nV — vestuário \n");
-        scanf("%c", &categoria);
+        scanf("%s", &categoria);
+
         if(preco_unitario<20 && categoria == 'A'){
             custo_estocagem = 2;
         }
@@ -84,10 +87,10 @@ int main(){
         printf("O custo de estocagem sera: %.2f \n", custo_estocagem);
 
         if(categoria == 'A' && refrigeracao == 'S'){
-            imposto = 4/100;
+            imposto = preco_unitario / 100 * 4;
         }    
         else{
-            imposto = 2/100;
+            imposto = preco_unitario / 100 * 2;
         }
 
         if(preco_final<=20){
@@ -99,12 +102,31 @@ int main(){
         else{
             printf("Classificacao: Caro. \n");
         }
+        if(preco_unitario > preco_maior){
+            preco_maior = preco_unitario;
+            
+        }
+        if(preco_unitario < preco_menor){
+            preco_menor = preco_unitario;
+        }
+        
 
         preco_final = preco_unitario + custo_estocagem + imposto;
+        printf("O preco final do produto sera: %.2f \n", preco_final);
+        
+        total_imposto = total_imposto + imposto;
+
+        media_custo_estocagem = media_custo_estocagem + custo_estocagem;
+        }
+        
+        printf("O preço maior sera: %f\n", preco_maior);
+
+        printf("O preço menor sera: %f\n", preco_menor);
 
 
-    }
+        printf("A media total dos impostos sera: %.2f \n", total_imposto/12);
 
+        printf("A media do custo de estocagem sera: %.2f \n", media_custo_estocagem/12);
 
     getchar();
     return 0;
